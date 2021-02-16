@@ -21,7 +21,7 @@ class PhotoCellViewModel: PhotoCellViewModelType {
     }
     
     var description: String {
-        return photo.alt_description
+        return photo.alt_description ?? ""
     }
     
     init (photo: UnsplashPhoto) {

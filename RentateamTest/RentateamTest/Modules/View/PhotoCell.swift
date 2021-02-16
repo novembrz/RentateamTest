@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PhotoCell: UICollectionViewCell {
     
@@ -16,30 +17,17 @@ class PhotoCell: UICollectionViewCell {
             guard let viewModel = viewModel else { return }
             descLabel.text = viewModel.description
             guard let url = URL(string: viewModel.imageUrl) else { return }
+            photoImageView.sd_setImage(with: url, completed: nil)
         }
     }
-//    
-//    var unsplashPhoto: UnsplashPhoto!{ //unwrap тк если вызовется данный метод, то фотография точно уже пришла с сервера
-//        didSet {
-//            let photoUrl = unsplashPhoto.urls["regular"]
-//            guard let imageUrl = photoUrl, let url = URL(string: imageUrl) else { return }
-//            photoImageView.sd_setImage(with: url, completed: nil)
-//        }
-//    }
     
     //MARK: - Create UI
-    
-    var cellView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .bgColor()
-        return view
-    }()
     
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 7
         return imageView
     }()
@@ -49,7 +37,8 @@ class PhotoCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .textColor()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
@@ -69,21 +58,20 @@ class PhotoCell: UICollectionViewCell {
     
     private func setupConstraints(){
         
-        //addSubview(cellView)
         addSubview(photoImageView)
         addSubview(descLabel)
         
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             photoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+            photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            photoImageView.heightAnchor.constraint(equalTo: photoImageView.widthAnchor)
         ])
         
         NSLayoutConstraint.activate([
             descLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 7),
             descLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor),
-            descLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor),
-            descLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+            descLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor)
         ])
     }
 }

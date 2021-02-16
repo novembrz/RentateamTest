@@ -9,6 +9,10 @@ import UIKit
 
 class PhotoFeedViewController: UIViewController {
     
+    private var viewModel: PhotoFeedViewModel?
+    private var refreshControl = UIRefreshControl()
+    private var timer: Timer?
+    
     private var photoFeedView: PhotoFeedView {
         guard let view = view as? PhotoFeedView
         else {
@@ -23,6 +27,7 @@ class PhotoFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .bgColor()
+        viewModel = PhotoFeedViewModel()
         setupDelegateAndDataSource()
         setupNavigationBar()
         setupSearchBar()
@@ -44,13 +49,15 @@ class PhotoFeedViewController: UIViewController {
 
 extension PhotoFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.numberOfRows() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseID, for: indexPath) as! PhotoCell
-        cell.descLabel.text = String(indexPath.item)
-        cell.photoImageView.backgroundColor = .tintColor()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseID, for: indexPath) as? PhotoCell, let viewModel = viewModel else {return UICollectionViewCell()}
+        
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+        cell.viewModel = cellViewModel
+        
         return cell
     }
 }
@@ -90,6 +97,13 @@ extension PhotoFeedViewController: UISearchBarDelegate {
     //MARK:-  SearchBar Delegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.viewModel?.searchPhoto(searchText: searchText) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.photoFeedView.collectionView.reloadData()
+                }
+            }
+        })
     }
 }

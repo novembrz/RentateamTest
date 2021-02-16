@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		803B890EB962C7F55AB3AABA /* Pods_RentateamTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FDCA48CA02EF1F36B6EDC4 /* Pods_RentateamTest.framework */; };
 		C250285F25DBAEF50099EB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250285E25DBAEF50099EB13 /* AppDelegate.swift */; };
 		C250286125DBAEF50099EB13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250286025DBAEF50099EB13 /* SceneDelegate.swift */; };
 		C250286325DBAEF50099EB13 /* PhotoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250286225DBAEF50099EB13 /* PhotoFeedViewController.swift */; };
@@ -23,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		461DC256F87267CC946B02CA /* Pods-RentateamTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentateamTest.release.xcconfig"; path = "Target Support Files/Pods-RentateamTest/Pods-RentateamTest.release.xcconfig"; sourceTree = "<group>"; };
+		94FDCA48CA02EF1F36B6EDC4 /* Pods_RentateamTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RentateamTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0FA1391522835C543DEC81F /* Pods-RentateamTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentateamTest.debug.xcconfig"; path = "Target Support Files/Pods-RentateamTest/Pods-RentateamTest.debug.xcconfig"; sourceTree = "<group>"; };
 		C250285B25DBAEF50099EB13 /* RentateamTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentateamTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250285E25DBAEF50099EB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250286025DBAEF50099EB13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803B890EB962C7F55AB3AABA /* Pods_RentateamTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22E4267CDEBD391D0458ADDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94FDCA48CA02EF1F36B6EDC4 /* Pods_RentateamTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B01618F9D9CB9E69B721F56 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA1391522835C543DEC81F /* Pods-RentateamTest.debug.xcconfig */,
+				461DC256F87267CC946B02CA /* Pods-RentateamTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C250285225DBAEF50099EB13 = {
 			isa = PBXGroup;
 			children = (
 				C250285D25DBAEF50099EB13 /* RentateamTest */,
 				C250285C25DBAEF50099EB13 /* Products */,
+				7B01618F9D9CB9E69B721F56 /* Pods */,
+				22E4267CDEBD391D0458ADDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,8 +126,8 @@
 		C250287625DBB03C0099EB13 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C250289825DBC5C40099EB13 /* ViewModel */,
 				C250289325DBC5990099EB13 /* View */,
+				C250289825DBC5C40099EB13 /* ViewModel */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -159,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C250286F25DBAEF80099EB13 /* Build configuration list for PBXNativeTarget "RentateamTest" */;
 			buildPhases = (
+				DF0E77064290BFB03A632627 /* [CP] Check Pods Manifest.lock */,
 				C250285725DBAEF50099EB13 /* Sources */,
 				C250285825DBAEF50099EB13 /* Frameworks */,
 				C250285925DBAEF50099EB13 /* Resources */,
+				7C94B8F551877F3FCF5FBB71 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +241,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C94B8F551877F3FCF5FBB71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RentateamTest/Pods-RentateamTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RentateamTest/Pods-RentateamTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RentateamTest/Pods-RentateamTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF0E77064290BFB03A632627 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RentateamTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C250285725DBAEF50099EB13 /* Sources */ = {
@@ -367,6 +435,7 @@
 		};
 		C250287025DBAEF80099EB13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0FA1391522835C543DEC81F /* Pods-RentateamTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -386,6 +455,7 @@
 		};
 		C250287125DBAEF80099EB13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 461DC256F87267CC946B02CA /* Pods-RentateamTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

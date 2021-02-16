@@ -12,8 +12,8 @@ struct PhotoModel: Decodable {
 }
 
 struct UnsplashPhoto: Decodable {
-    let alt_description: String
-    let created_at: String
+    let alt_description: String?
+    let created_at: String?
     let urls: [URLKing.RawValue:String]
     
     enum URLKing: String {
