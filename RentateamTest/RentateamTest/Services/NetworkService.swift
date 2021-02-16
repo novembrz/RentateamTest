@@ -10,9 +10,9 @@ import Foundation
 class NetworkService {
     
     //запрос данных через URL API Unsplash
-    func request(searchTerm: String, completion: @escaping (Data?, Error?) -> Void)  {
+    func request(searchTerm: String, photosCount: Int?, completion: @escaping (Data?, Error?) -> Void)  {
         
-        let parameters = self.prepareParaments(searchTerm: searchTerm)
+        let parameters = self.prepareParaments(searchTerm: searchTerm, photosPage: photosCount)
         let url = self.createUrl(with: parameters)
         print("UNSPLASH url: \(url)")
         
@@ -32,11 +32,10 @@ class NetworkService {
     }
     
     //функция для создания параметров url-адреса. Ключи взяты из документации
-    private func prepareParaments(searchTerm: String?) -> [String: String] {
+    private func prepareParaments(searchTerm: String?, photosPage: Int?) -> [String: String] {
         var parameters = [String: String]()
         parameters["query"] = searchTerm
-        parameters["page"] = String(1)
-        parameters["count"] = String(30)
+        parameters["page"] = String(photosPage ?? 1)
         return parameters
     }
     

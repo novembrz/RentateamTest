@@ -13,6 +13,8 @@ class PhotoFeedViewController: UIViewController {
     private var refreshControl = UIRefreshControl()
     private var timer: Timer?
     
+    var isLoading = false
+    
     private var photoFeedView: PhotoFeedView {
         guard let view = view as? PhotoFeedView
         else {
@@ -61,6 +63,7 @@ extension PhotoFeedViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    //MARK: -Navigation
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let viewModel = viewModel else { return }
@@ -70,6 +73,27 @@ extension PhotoFeedViewController: UICollectionViewDelegate, UICollectionViewDat
         newsVC.photo = news
         
         self.navigationController?.pushViewController(newsVC, animated: true)
+    }
+    
+    // MARK: - Loading Process
+    // Устанавливаем время, когда мы хотим, чтобы при прокрутке загружалось больше данных => загрузит больше данных, когда пользователь увидит 20ю ячейку снизу.
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == (viewModel?.numberOfRows())! - 2 && !self.isLoading {
+            loadMorePhotos()
+        }
+    }
+    
+    private func loadMorePhotos() {
+        if !self.isLoading {
+            self.isLoading = true
+            DispatchQueue.main.async {
+                self.viewModel?.loadMorePhotos() { [weak self] in
+                    self?.photoFeedView.collectionView.reloadData()
+                }
+                self.isLoading = false
+            }
+        }
     }
 }
 

@@ -11,8 +11,8 @@ class NetworkDataFetcher{
     
     var networkService = NetworkService()
     
-    func fetchImages(searchTerm: String, completion: @escaping (PhotoModel?) -> ()) {
-        networkService.request(searchTerm: searchTerm) { (data, error) in
+    func fetchImages(searchTerm: String, photosPage: Int?, completion: @escaping (PhotoModel?) -> ()) {
+        networkService.request(searchTerm: searchTerm, photosCount: photosPage) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
                 completion(nil)
