@@ -25,6 +25,7 @@
 		C250289E25DBC67B0099EB13 /* PhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250289D25DBC67B0099EB13 /* PhotoCellViewModel.swift */; };
 		C283A1EA25DC235200F3BC69 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283A1E925DC235200F3BC69 /* DateFormatter.swift */; };
 		C283A1ED25DC249700F3BC69 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283A1EC25DC249700F3BC69 /* String.swift */; };
+		C283A1F225DC458700F3BC69 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283A1F125DC458700F3BC69 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C250289D25DBC67B0099EB13 /* PhotoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModel.swift; sourceTree = "<group>"; };
 		C283A1E925DC235200F3BC69 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		C283A1EC25DC249700F3BC69 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		C283A1F125DC458700F3BC69 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				C250288825DBC3ED0099EB13 /* Models */,
 				C250287625DBB03C0099EB13 /* PhotoFeed */,
 				C2487D4025DBE8BD007B10CC /* Photo */,
+				C283A1F025DC456A00F3BC69 /* Helpers */,
 				C250288025DBB4C80099EB13 /* Extensions */,
 				C250287525DBB0280099EB13 /* Supporting files */,
 			);
@@ -194,6 +197,14 @@
 				C250289D25DBC67B0099EB13 /* PhotoCellViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C283A1F025DC456A00F3BC69 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C283A1F125DC458700F3BC69 /* Reachability.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				C250287B25DBB2C10099EB13 /* PhotoFeedView.swift in Sources */,
 				C250288A25DBC4130099EB13 /* NetworkService.swift in Sources */,
 				C283A1ED25DC249700F3BC69 /* String.swift in Sources */,
+				C283A1F225DC458700F3BC69 /* Reachability.swift in Sources */,
 				C250289A25DBC5DD0099EB13 /* PhotoFeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

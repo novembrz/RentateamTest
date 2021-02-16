@@ -132,17 +132,23 @@ extension PhotoFeedViewController: UISearchBarDelegate {
     //MARK:-  SearchBar Delegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.photoFeedView.activityIndicator.startAnimating()
-            self.photoFeedView.activityIndicator.hidesWhenStopped = true
-            self.viewModel?.searchPhoto(searchText: searchText) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.photoFeedView.collectionView.reloadData()
-                    self?.photoFeedView.activityIndicator.stopAnimating()
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection Available!")
+            photoFeedView.warningLabel.isHidden = true
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                self.photoFeedView.activityIndicator.startAnimating()
+                self.photoFeedView.activityIndicator.hidesWhenStopped = true
+                self.viewModel?.searchPhoto(searchText: searchText) { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.photoFeedView.collectionView.reloadData()
+                        self?.photoFeedView.activityIndicator.stopAnimating()
+                    }
                 }
-            }
-        })
+            })
+        } else {
+            print("Internet Connection Not Available!")
+            photoFeedView.warningLabel.isHidden = false
+        }
     }
 }

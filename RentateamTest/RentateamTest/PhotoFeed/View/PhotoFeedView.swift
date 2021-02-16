@@ -20,6 +20,16 @@ class PhotoFeedView: UIView{
         activityIndicator.color = .systemGray
         return activityIndicator
     }()
+    
+    let warningLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Ошибка соединения!"
+        label.textColor = .tintColor()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.isHidden = true
+        return label
+    }()
 
     //MARK: - Initialize
 
@@ -70,10 +80,16 @@ class PhotoFeedView: UIView{
     
     private func setupConstraints(){
         collectionView.addSubview(activityIndicator)
+        collectionView.addSubview(warningLabel)
 
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            warningLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            warningLabel.topAnchor.constraint(equalTo: topAnchor, constant: 130)
         ])
     }
 }
