@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoFeedController: UIViewController {
+class PhotoFeedViewController: UIViewController {
     
     private var photoFeedView: PhotoFeedView {
         guard let view = view as? PhotoFeedView
@@ -42,7 +42,7 @@ class PhotoFeedController: UIViewController {
 
 //MARK: - UICollectionView Delegate & DataSource
 
-extension PhotoFeedController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension PhotoFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -55,7 +55,9 @@ extension PhotoFeedController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension PhotoFeedController {
+//MARK: - Setup NavigationBar
+
+extension PhotoFeedViewController {
     
     private func setupNavigationBar(){
         navigationController?.navigationBar.barTintColor = .bgColor()
@@ -70,7 +72,10 @@ extension PhotoFeedController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigationLabel)
     }
 }
-extension PhotoFeedController: UISearchBarDelegate {
+
+//MARK: - Setup SearchBar
+
+extension PhotoFeedViewController: UISearchBarDelegate {
     
     private func setupSearchBar(){
         let search = UISearchController(searchResultsController: nil)

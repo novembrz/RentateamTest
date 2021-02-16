@@ -11,6 +11,22 @@ class PhotoCell: UICollectionViewCell {
     
     static let reuseID = "photoCell"
     
+    weak var viewModel: PhotoCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            descLabel.text = viewModel.description
+            guard let url = URL(string: viewModel.imageUrl) else { return }
+        }
+    }
+//    
+//    var unsplashPhoto: UnsplashPhoto!{ //unwrap тк если вызовется данный метод, то фотография точно уже пришла с сервера
+//        didSet {
+//            let photoUrl = unsplashPhoto.urls["regular"]
+//            guard let imageUrl = photoUrl, let url = URL(string: imageUrl) else { return }
+//            photoImageView.sd_setImage(with: url, completed: nil)
+//        }
+//    }
+    
     //MARK: - Create UI
     
     var cellView: UIView = {

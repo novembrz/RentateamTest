@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let nv = UINavigationController(rootViewController: PhotoFeedController())
+        let nv = UINavigationController(rootViewController: PhotoFeedViewController())
         window?.rootViewController = nv
         window?.makeKeyAndVisible()
     }
