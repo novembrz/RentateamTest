@@ -60,6 +60,17 @@ extension PhotoFeedViewController: UICollectionViewDelegate, UICollectionViewDat
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let viewModel = viewModel else { return }
+
+        let newsVC = PhotoViewController()
+        let news = viewModel.photos[indexPath.item]
+        newsVC.photo = news
+        
+        self.navigationController?.pushViewController(newsVC, animated: true)
+    }
 }
 
 //MARK: - Setup NavigationBar
@@ -97,11 +108,15 @@ extension PhotoFeedViewController: UISearchBarDelegate {
     //MARK:-  SearchBar Delegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.photoFeedView.activityIndicator.startAnimating()
+            self.photoFeedView.activityIndicator.hidesWhenStopped = true
             self.viewModel?.searchPhoto(searchText: searchText) { [weak self] in
                 DispatchQueue.main.async {
                     self?.photoFeedView.collectionView.reloadData()
+                    self?.photoFeedView.activityIndicator.stopAnimating()
                 }
             }
         })

@@ -18,6 +18,9 @@ class PhotoFeedViewModel: PhotoFeedViewModelType {
     
     var networkDataFetcher = NetworkDataFetcher()
     var photos: [UnsplashPhoto] = []
+    var selectedPhoto: UnsplashPhoto!
+    
+    //MARK: - Network Logic
     
     func searchPhoto(searchText: String, completion: @escaping() -> ()){
         
@@ -29,6 +32,8 @@ class PhotoFeedViewModel: PhotoFeedViewModelType {
             }
         }
     }
+    
+    //MARK: - Methods for configure CollectiomView
     
     func numberOfRows() -> Int {
         return photos.count

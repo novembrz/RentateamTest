@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		803B890EB962C7F55AB3AABA /* Pods_RentateamTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FDCA48CA02EF1F36B6EDC4 /* Pods_RentateamTest.framework */; };
+		C2487D4225DBE8DB007B10CC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2487D4125DBE8DB007B10CC /* PhotoViewController.swift */; };
+		C2487D4925DBEA47007B10CC /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2487D4825DBEA47007B10CC /* PhotoView.swift */; };
 		C250285F25DBAEF50099EB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250285E25DBAEF50099EB13 /* AppDelegate.swift */; };
 		C250286125DBAEF50099EB13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250286025DBAEF50099EB13 /* SceneDelegate.swift */; };
 		C250286325DBAEF50099EB13 /* PhotoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250286225DBAEF50099EB13 /* PhotoFeedViewController.swift */; };
@@ -21,12 +23,16 @@
 		C250289125DBC4800099EB13 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250289025DBC4800099EB13 /* PhotoModel.swift */; };
 		C250289A25DBC5DD0099EB13 /* PhotoFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250289925DBC5DD0099EB13 /* PhotoFeedViewModel.swift */; };
 		C250289E25DBC67B0099EB13 /* PhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250289D25DBC67B0099EB13 /* PhotoCellViewModel.swift */; };
+		C283A1EA25DC235200F3BC69 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283A1E925DC235200F3BC69 /* DateFormatter.swift */; };
+		C283A1ED25DC249700F3BC69 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283A1EC25DC249700F3BC69 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		461DC256F87267CC946B02CA /* Pods-RentateamTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentateamTest.release.xcconfig"; path = "Target Support Files/Pods-RentateamTest/Pods-RentateamTest.release.xcconfig"; sourceTree = "<group>"; };
 		94FDCA48CA02EF1F36B6EDC4 /* Pods_RentateamTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RentateamTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FA1391522835C543DEC81F /* Pods-RentateamTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RentateamTest.debug.xcconfig"; path = "Target Support Files/Pods-RentateamTest/Pods-RentateamTest.debug.xcconfig"; sourceTree = "<group>"; };
+		C2487D4125DBE8DB007B10CC /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		C2487D4825DBEA47007B10CC /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		C250285B25DBAEF50099EB13 /* RentateamTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentateamTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250285E25DBAEF50099EB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250286025DBAEF50099EB13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +48,8 @@
 		C250289025DBC4800099EB13 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		C250289925DBC5DD0099EB13 /* PhotoFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFeedViewModel.swift; sourceTree = "<group>"; };
 		C250289D25DBC67B0099EB13 /* PhotoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModel.swift; sourceTree = "<group>"; };
+		C283A1E925DC235200F3BC69 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		C283A1EC25DC249700F3BC69 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C2487D4025DBE8BD007B10CC /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C2487D4125DBE8DB007B10CC /* PhotoViewController.swift */,
+				C2487D4825DBEA47007B10CC /* PhotoView.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 		C250285225DBAEF50099EB13 = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +114,8 @@
 				C250287425DBB01A0099EB13 /* Application */,
 				C250288725DBC3E50099EB13 /* Services */,
 				C250288825DBC3ED0099EB13 /* Models */,
-				C250287625DBB03C0099EB13 /* Modules */,
+				C250287625DBB03C0099EB13 /* PhotoFeed */,
+				C2487D4025DBE8BD007B10CC /* Photo */,
 				C250288025DBB4C80099EB13 /* Extensions */,
 				C250287525DBB0280099EB13 /* Supporting files */,
 			);
@@ -123,19 +141,21 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		C250287625DBB03C0099EB13 /* Modules */ = {
+		C250287625DBB03C0099EB13 /* PhotoFeed */ = {
 			isa = PBXGroup;
 			children = (
 				C250289325DBC5990099EB13 /* View */,
 				C250289825DBC5C40099EB13 /* ViewModel */,
 			);
-			path = Modules;
+			path = PhotoFeed;
 			sourceTree = "<group>";
 		};
 		C250288025DBB4C80099EB13 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C250288125DBB4D50099EB13 /* UIColor.swift */,
+				C283A1EC25DC249700F3BC69 /* String.swift */,
+				C283A1E925DC235200F3BC69 /* DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,11 +314,15 @@
 				C250286325DBAEF50099EB13 /* PhotoFeedViewController.swift in Sources */,
 				C250288225DBB4D50099EB13 /* UIColor.swift in Sources */,
 				C250287E25DBB3920099EB13 /* PhotoCell.swift in Sources */,
+				C2487D4225DBE8DB007B10CC /* PhotoViewController.swift in Sources */,
 				C250285F25DBAEF50099EB13 /* AppDelegate.swift in Sources */,
 				C250286125DBAEF50099EB13 /* SceneDelegate.swift in Sources */,
 				C250289E25DBC67B0099EB13 /* PhotoCellViewModel.swift in Sources */,
+				C283A1EA25DC235200F3BC69 /* DateFormatter.swift in Sources */,
+				C2487D4925DBEA47007B10CC /* PhotoView.swift in Sources */,
 				C250287B25DBB2C10099EB13 /* PhotoFeedView.swift in Sources */,
 				C250288A25DBC4130099EB13 /* NetworkService.swift in Sources */,
+				C283A1ED25DC249700F3BC69 /* String.swift in Sources */,
 				C250289A25DBC5DD0099EB13 /* PhotoFeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

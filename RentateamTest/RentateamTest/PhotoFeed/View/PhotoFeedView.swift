@@ -72,8 +72,8 @@ class PhotoFeedView: UIView{
         collectionView.addSubview(activityIndicator)
 
         NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

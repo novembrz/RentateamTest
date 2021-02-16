@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+import SDWebImage // для ассинахронной загрузки и отправки фотографий в кэш - решение проблемы оффлайн-режима
 
 class PhotoCell: UICollectionViewCell {
     
@@ -35,7 +35,7 @@ class PhotoCell: UICollectionViewCell {
     let descLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         label.textColor = .textColor()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
@@ -48,6 +48,12 @@ class PhotoCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .clear
         setupConstraints()
+    }
+    
+    //при переиспользовании ячейки картинка будет обнуляться
+    override func prepareForReuse(){
+        super.prepareForReuse()
+        photoImageView.image = nil
     }
     
     required init?(coder: NSCoder) {
